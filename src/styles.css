@@ -38,7 +38,6 @@ li {
 li.first-letter {
   text-transform: capitalize;
 }
-
 .row {
   display: flex;
 }
@@ -72,6 +71,10 @@ li.first-letter {
 
 .weather-details {
   text-align: right;
+}
+
+.weather-details #date {
+  font-size: 20px;
 }
 
 .overview {
