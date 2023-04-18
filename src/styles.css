@@ -35,6 +35,10 @@ li {
   margin-bottom: 0;
 }
 
+li.first-letter {
+  text-transform: capitalize;
+}
+
 .row {
   display: flex;
 }
