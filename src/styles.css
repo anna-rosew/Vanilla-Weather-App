@@ -102,3 +102,26 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+  height: 13px;
+  color: #878787;
+}
+
+.forecast-date {
+  color: black;
+  font-size: 16px;
+}
+
+.forecast-temp-max {
+  color: black;
+  font-size: 13px;
+}
+
+.forecast-temp-min {
+  opacity: 0.6;
+  font-size: 13px;
+}

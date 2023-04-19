@@ -23,6 +23,24 @@ function formatDayTime(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = "";
+  forecastHTML =
+    forecastHTML +
+    ` <div class="row">
+    <div class="col-2">
+      <div class="forecast-date">${forecastDay}</div>
+      <img src="" alt="" width="36" />
+      <div class="forecast-temps">
+        <span class="forecast-temp-max">${maxTemp}°</span>
+        <span class="forecast-temp-min">${minTemp}°</span>
+      </div>
+    </div>
+  </div>`;
+  forecastElement.innerHTML = "forecastHTML";
+}
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let dateNo = date.getDate();
@@ -113,3 +131,6 @@ let celciusLink = document.querySelector("celciusLink");
 celciusLink.addEventListener("click", showCelciusTemp);
 
 search("Liverpool");
+displayForecast();
+
+//you can implement an unlimited number of functions in a programme
