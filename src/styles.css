@@ -89,11 +89,12 @@ li.first-letter {
   width: 60px;
 }
 
-#celcius-link.active:hover {
-  text-decoration: none;
+.weather-temperature .active {
+  color: black;
+  cursor: default;
 }
 
-#fahrenheit-link.active:hover {
+.weather-temperature .active:hover {
   text-decoration: none;
 }
 

@@ -73,11 +73,16 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function showCelciusTemp(event) {}
+function showCelciusTemp(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
 
 function showFahrenheitTemp(event) {
   event.preventDefault();
   celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   //add active class from celcius link
   let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
