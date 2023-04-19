@@ -79,11 +79,10 @@ function search(city) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
-  search(cityInputElement.value);
+  let city = document.querySelector("#city-input").value;
+  search(city);
 }
-
-search("New York");
 
 let form = document.querySelector("search-form");
 form.addEventListener("submit", handleSubmit);
+search("Liverpool");
