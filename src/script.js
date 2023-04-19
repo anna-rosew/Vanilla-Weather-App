@@ -54,7 +54,7 @@ function displayTemperature(response) {
   let dayElement = document.querySelector("#dayTime");
   let dateElement = document.querySelector("#date");
   let cityElement = document.querySelector("#city");
-  let iconElement = document.querySelector(`#icon`);
+  let iconElement = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
