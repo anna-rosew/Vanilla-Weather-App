@@ -57,6 +57,8 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
 
+  celciusTemp = response.data.main.temp;
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   conditionsElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -69,6 +71,17 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+}
+
+function showCelciusTemp(event) {}
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  //add active class from celcius link
+  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
 function search(city) {
@@ -85,4 +98,13 @@ function handleSubmit(event) {
 
 let form = document.querySelector("search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celciusTemp = null;
+
+let fahrenheitLink = document.querySelector("fahrenheitLink");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celciusLink = document.querySelector("celciusLink");
+celciusLink.addEventListener("click", showCelciusTemp);
+
 search("Liverpool");

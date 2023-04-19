@@ -89,6 +89,14 @@ li.first-letter {
   width: 60px;
 }
 
+#celcius-link.active:hover {
+  text-decoration: none;
+}
+
+#fahrenheit-link.active:hover {
+  text-decoration: none;
+}
+
 a {
   text-decoration: none;
   color: black;
