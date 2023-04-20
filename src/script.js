@@ -25,20 +25,22 @@ function formatDayTime(timestamp) {
 
 function displayForecast() {
   let forecastElement = document.querySelector("#weather-forecast");
-  let forecastHTML = "";
-  forecastHTML =
-    forecastHTML +
-    ` <div class="row">
-    <div class="col-2">
-      <div class="forecast-date">${forecastDay}</div>
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thur", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2" class id="forecast-day">
+      <div class="forecast-date">${day}</div>
       <img src="" alt="" width="36" />
       <div class="forecast-temps">
-        <span class="forecast-temp-max">${maxTemp}°</span>
-        <span class="forecast-temp-min">${minTemp}°</span>
+        <span class="forecast-temp-max">10°</span>
+        <span class="forecast-temp-min">15°</span>
       </div>
-    </div>
-  </div>`;
-  forecastElement.innerHTML = "forecastHTML";
+    </div>`;
+    forecastElement.innerHTML = forecastHTML;
+  });
+  forecastHTML = forecastHTML + `</div>`;
 }
 
 function formatDate(timestamp) {
@@ -120,16 +122,15 @@ function handleSubmit(event) {
   let city = document.querySelector("#city-input").value;
   search(city);
 }
+search("Liverpool");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let celciusTemp = null;
+displayForecast();
 
 let fahrenheitLink = document.querySelector("#farenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemp);
-
-search("Liverpool");

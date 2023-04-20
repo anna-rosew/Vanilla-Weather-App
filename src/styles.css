@@ -105,6 +105,10 @@ a {
 
 .weather-forecast {
   margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 70px;
   text-align: center;
   font-size: 16px;
   height: 13px;
@@ -124,4 +128,13 @@ a {
 .forecast-temp-min {
   opacity: 0.6;
   font-size: 13px;
+}
+
+#forecast-day {
+  padding: 0;
+}
+
+#forecast-day .active:hover {
+  border: 1px solid gray;
+  border-radius: 5px;
 }
