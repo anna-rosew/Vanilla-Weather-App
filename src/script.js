@@ -119,18 +119,15 @@ function handleSubmit(event) {
   search(city);
 }
 
-let form = document.querySelector("search-form");
+let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let celciusTemp = null;
 
-let fahrenheitLink = document.querySelector("fahrenheitLink");
+let fahrenheitLink = document.querySelector("#farenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
-let celciusLink = document.querySelector("celciusLink");
+let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemp);
 
 search("Liverpool");
-displayForecast();
-
-//you can implement an unlimited number of functions in a programme
