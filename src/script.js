@@ -75,9 +75,9 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
   let iconCode = response.data.weather[0].icon;
 
-  celciusTemp = response.data.main.temp;
+  celciusTemp = Math.round(response.data.main.temp);
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = celciusTemp;
   conditionsElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -95,6 +95,8 @@ function showCelciusTemp(event) {
   event.preventDefault();
   celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#strong-temp");
+  temperatureElement.innerHTML = Math.round(celciusTemp);
 }
 
 function showFahrenheitTemp(event) {
@@ -103,7 +105,7 @@ function showFahrenheitTemp(event) {
   fahrenheitLink.classList.add("active");
   //add active class from celcius link
   let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#temperature");
+  let temperatureElement = document.querySelector("#strong-temp");
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
