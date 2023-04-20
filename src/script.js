@@ -23,7 +23,8 @@ function formatDayTime(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thur", "Fri", "Sat", "Sun"];
@@ -66,6 +67,14 @@ function formatDate(timestamp) {
   return `${dateNo} ${month} ${year}`;
 }
 
+function getForecast(coordinates) {
+  let apiKey = `40b745c14eadad7b7c4e6e4bf3b70103`;
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  axios.get(apiURL).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#strong-temp");
   let conditionsElement = document.querySelector("#conditions");
@@ -91,6 +100,7 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function showCelciusTemp(event) {
@@ -113,7 +123,7 @@ function showFahrenheitTemp(event) {
 
 function search(city) {
   let apiKey = "aa09763d916df0424c840d55bfc2d2c9";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -122,12 +132,11 @@ function handleSubmit(event) {
   let city = document.querySelector("#city-input").value;
   search(city);
 }
+
 search("Liverpool");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-displayForecast();
 
 let fahrenheitLink = document.querySelector("#farenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
