@@ -113,24 +113,6 @@ function displayTemperature(response) {
   getForecast(response.data.coordinates);
 }
 
-function showCelciusTemp(event) {
-  event.preventDefault();
-  celciusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#strong-temp");
-  temperatureElement.innerHTML = Math.round(celciusTemp);
-}
-
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  //add active class from celcius link
-  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#strong-temp");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
 function search(city) {
   let apiKey = "a53b648o522cd05fa66cde020a59ta02";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -147,9 +129,3 @@ search("Liverpool");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#farenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", showCelciusTemp);
